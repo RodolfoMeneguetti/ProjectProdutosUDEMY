@@ -5,8 +5,8 @@ public class Product {
 	private String Name; 
 	private double price; 
 	
+	
 	public Product() {
-		
 	}
 	
 	public Product(String Name, double Price) {
@@ -40,5 +40,7 @@ public class Product {
 		
 		return sum;
 	}
+	
+
 
 }

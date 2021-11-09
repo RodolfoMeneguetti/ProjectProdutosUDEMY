@@ -1,17 +1,20 @@
 package Entities;
 
 public class OrderItem {
-	
-	private Integer quantity; 
+
+	private Integer quantity;
 	private double price;
-	
+	private Product product; // quando for chamar o produto chama desta forma
+
 	public OrderItem() {
-		
+
 	}
-	
-	public OrderItem(Integer quantity, double price) {
+
+	public OrderItem(Integer quantity, double price, Product product) {
+		super();
 		this.quantity = quantity;
 		this.price = price;
+		this.product = product;
 	}
 
 	public Integer getQuantity() {
@@ -28,16 +31,26 @@ public class OrderItem {
 
 	public void setPrice(double price) {
 		this.price = price;
-	} 
-	
-	public double subTotal(double price, Integer quantity) {
-		double sum = price * quantity;
-		if(price <= 0 || quantity == null) {
-			System.out.println("Erro ao calcular! ");
-		}
-		return sum;  
 	}
-	
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public double subTotal() {
+		return price * quantity;
+	}
+
+	@Override
+	public String toString() {
+		return getProduct().getName() + ", $" + String.format("%.2f", price) + ", Quantity: " + quantity
+				+ ", Subtotal: " + String.format("%.2f", subTotal());
+
+	}
 	
 
 }
